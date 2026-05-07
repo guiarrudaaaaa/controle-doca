@@ -309,7 +309,9 @@ function switchTab(tab){
   });
 }
 
-(async () => { await loadState(); })();
+window.addEventListener('DOMContentLoaded', () => {
+  loadState();
+});
 </script>
 </body>
 </html>

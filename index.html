@@ -448,9 +448,11 @@ function switchTab(tab){
   });
 }
 
-loadAndRender();
-updateClock();
-setInterval(updateClock,1000);
+window.addEventListener('DOMContentLoaded', () => {
+  loadAndRender();
+  updateClock();
+  setInterval(updateClock,1000);
+});
 </script>
 </body>
 </html>
