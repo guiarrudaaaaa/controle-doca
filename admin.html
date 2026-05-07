@@ -240,6 +240,7 @@ function renderGrid(side){
         <select onchange="state['${side}'].docas[${i}].status=this.value">
           <option value="livre" ${d.status==='livre'?'selected':''}>Livre</option>
           <option value="oper" ${d.status==='oper'?'selected':''}>Operando</option>
+          <option value="stage" ${d.status==='stage'?'selected':''}>Aguardando Stage</option>
           <option value="bloq" ${d.status==='bloq'?'selected':''}>Bloqueada</option>
         </select>
       </div>
@@ -257,6 +258,7 @@ function renderGrid(side){
           <span class="pct-val" id="pvb-${side}-${i}">${d.pct}%</span>
         </div>
       </div>
+      ${d.status!=='livre' || d.dt || d.hora || d.pct ? `<button class="remove-btn" onclick="clearDoca('${side}',${i})">Finalizar</button>` : ''}
     </div>
   `).join('');
 }
@@ -283,13 +285,19 @@ function renderPatio(side){
           <option value="red" ${p.urg==='red'?'selected':''}>Urgente</option>
         </select>
       </div>
-      <button class="remove-btn" onclick="removePatio('${side}',${i})">✕</button>
+      <button class="remove-btn" onclick="removePatio('${side}',${i})">Finalizar</button>
     </div>
   `).join('');
 }
 
 function addPatio(side){state[side].patio.push({dt:'',comp:'simples',chegada:'',urg:'green'});renderPatio(side);saveAll();}
 function removePatio(side,i){state[side].patio.splice(i,1);renderPatio(side);saveAll();}
+
+function clearDoca(side,i){
+  state[side].docas[i] = { ...state[side].docas[i], status:'livre', dt:'', comp:'', hora:'', pct:0 };
+  renderGrid(side);
+  saveAll();
+}
 
 function saveAll(){
   try{

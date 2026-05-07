@@ -40,6 +40,7 @@
 :root{
   --yellow:#FFCC00;
   --red:#D40511;
+  --purple:#8b5cf6;
   --bg:#0c0d10;
   --surface:#13151a;
   --surface2:#1a1d24;
@@ -53,6 +54,7 @@
   --red-dim:rgba(212,5,17,0.14);
   --blue:#38bdf8;
   --blue-dim:rgba(56,189,248,0.12);
+  --purple-dim:rgba(139,92,246,0.15);
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 html,body{height:100%;background:var(--bg);}
@@ -151,6 +153,7 @@ body{font-family:'Barlow',sans-serif;display:flex;flex-direction:column;min-heig
 }
 .doca.s-livre::before{background:var(--green);}
 .doca.s-oper::before{background:var(--yellow);}
+.doca.s-stage::before{background:var(--purple);}
 .doca.s-bloq::before{background:var(--red);}
 
 .doca-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
@@ -165,6 +168,7 @@ body{font-family:'Barlow',sans-serif;display:flex;flex-direction:column;min-heig
 }
 .b-livre{background:var(--green-dim);color:var(--green);}
 .b-oper{background:var(--amber-dim);color:var(--yellow);}
+.b-stage{background:var(--purple-dim);color:var(--purple);}
 .b-bloq{background:var(--red-dim);color:#f87171;}
 
 .truck-wrap{
@@ -265,6 +269,7 @@ body{font-family:'Barlow',sans-serif;display:flex;flex-direction:column;min-heig
       <div class="seclabel">Docas de Saída</div>
       <div class="stats">
         <div class="stat">Operando <b id="o-op">—</b></div>
+        <div class="stat">Aguardando <b id="o-st">—</b></div>
         <div class="stat">Livres <b id="o-lv">—</b></div>
         <div class="stat">Bloqueadas <b id="o-bl">—</b></div>
       </div>
@@ -293,6 +298,7 @@ body{font-family:'Barlow',sans-serif;display:flex;flex-direction:column;min-heig
       <div class="seclabel">Docas de Entrada</div>
       <div class="stats">
         <div class="stat">Operando <b id="i-op">—</b></div>
+        <div class="stat">Aguardando <b id="i-st">—</b></div>
         <div class="stat">Livres <b id="i-lv">—</b></div>
         <div class="stat">Bloqueadas <b id="i-bl">—</b></div>
       </div>
@@ -379,7 +385,7 @@ function renderSide(side,data){
     <div class="doca s-${d.status}">
       <div class="doca-hdr">
         <span class="doca-id">${d.id}</span>
-        <span class="badge ${d.status==='livre'?'b-livre':d.status==='oper'?'b-oper':'b-bloq'}">${d.status==='livre'?'Livre':d.status==='oper'?'Operando':'Bloqueada'}</span>
+        <span class="badge ${d.status==='livre'?'b-livre':d.status==='oper'?'b-oper':d.status==='stage'?'b-stage':'b-bloq'}">${d.status==='livre'?'Livre':d.status==='oper'?'Operando':d.status==='stage'?'Aguardando':'Bloqueada'}</span>
       </div>
       <div class="truck-wrap">
         ${truckSVG(d.pct,d.comp)}
@@ -409,6 +415,7 @@ function renderSide(side,data){
 
   const pfx=side==='out'?'o':'i';
   document.getElementById(pfx+'-op').textContent=data.docas.filter(d=>d.status==='oper').length;
+  document.getElementById(pfx+'-st').textContent=data.docas.filter(d=>d.status==='stage').length;
   document.getElementById(pfx+'-lv').textContent=data.docas.filter(d=>d.status==='livre').length;
   document.getElementById(pfx+'-bl').textContent=data.docas.filter(d=>d.status==='bloq').length;
   const t=new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
