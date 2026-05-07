@@ -31,8 +31,11 @@
   const analytics = getAnalytics(app);
   const db = getFirestore(app);
 
-  // Make db available globally
+  // Make Firestore helpers available globally for the inline admin script
   window.db = db;
+  window.doc = doc;
+  window.setDoc = setDoc;
+  window.getDoc = getDoc;
 </script>
 <style>
 :root{

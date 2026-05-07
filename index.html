@@ -31,8 +31,10 @@
   const analytics = getAnalytics(app);
   const db = getFirestore(app);
 
-  // Make db available globally
+  // Make Firestore helpers available globally for the inline viewer script
   window.db = db;
+  window.doc = doc;
+  window.onSnapshot = onSnapshot;
 </script>
 <style>
 :root{
