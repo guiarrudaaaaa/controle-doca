@@ -303,6 +303,7 @@ function switchTab(tab){
   ['out','in'].forEach(t=>{
     document.getElementById('screen-'+t).classList.toggle('act',t===tab);
     document.getElementById('tab-'+t).classList.toggle('act',t===tab);
+  });
 }
 
 (async () => { await loadState(); })();
