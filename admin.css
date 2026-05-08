@@ -212,6 +212,16 @@ body {
   border-color: var(--yellow);
 }
 
+.field.field-error input, .field.field-error select {
+  border-color: var(--red);
+  background: rgba(212, 5, 17, 0.05);
+}
+
+.field.field-valid input, .field.field-valid select {
+  border-color: var(--green);
+  background: rgba(46, 204, 113, 0.05);
+}
+
 .patio-section, .previsao-section {
   border-top: 1px solid var(--border);
   padding-top: 16px;

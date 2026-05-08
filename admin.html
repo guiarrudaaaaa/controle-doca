@@ -58,13 +58,13 @@
     <div class="patio-section">
       <div class="sec-title">Pátio — Veículos Aguardando (Outbound)</div>
       <div class="patio-items" id="patio-out-edit"></div>
-      <button class="add-btn" style="margin-top:10px" onclick="addPatio('out')">+ Adicionar veículo ao pátio</button>
+      <button class="add-btn" style="margin-top:10px" onclick="adicionarPatio('out')">+ Adicionar veículo ao pátio</button>
     </div>
 
     <div class="previsao-section">
       <div class="sec-title">
         Previsão do Dia (Outbound)
-        <button class="add-btn" onclick="addPrevisao('out')">+ Nova Previsão</button>
+        <button class="add-btn" onclick="adicionarPrevisao('out')">+ Nova Previsão</button>
       </div>
       <div class="previsao-items" id="previsao-out-edit"></div>
     </div>
@@ -77,13 +77,13 @@
     <div class="patio-section">
       <div class="sec-title">Pátio — Veículos Aguardando (Inbound)</div>
       <div class="patio-items" id="patio-in-edit"></div>
-      <button class="add-btn" style="margin-top:10px" onclick="addPatio('in')">+ Adicionar veículo ao pátio</button>
+      <button class="add-btn" style="margin-top:10px" onclick="adicionarPatio('in')">+ Adicionar veículo ao pátio</button>
     </div>
 
     <div class="previsao-section">
       <div class="sec-title">
         Previsão do Dia (Inbound)
-        <button class="add-btn" onclick="addPrevisao('in')">+ Nova Previsão</button>
+        <button class="add-btn" onclick="adicionarPrevisao('in')">+ Nova Previsão</button>
       </div>
       <div class="previsao-items" id="previsao-in-edit"></div>
     </div>
@@ -91,7 +91,7 @@
 
   <div class="save-bar">
     <div class="save-msg" id="save-msg">✓ Dados salvos e publicados com sucesso!</div>
-    <button class="save-btn" onclick="saveAll()">💾 Salvar e Publicar</button>
+    <button class="save-btn" onclick="salvarTudo()">💾 Salvar e Publicar</button>
   </div>
 </div>
 
