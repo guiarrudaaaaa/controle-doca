@@ -1,0 +1,379 @@
+/* admin.css - Estilos para o painel de administração das docas DHL */
+
+:root {
+  --yellow: #FFCC00;
+  --red: #D40511;
+  --bg: #0c0d10;
+  --surface: #13151a;
+  --surface2: #1a1d24;
+  --border: #22252f;
+  --text: #f0f2f8;
+  --muted: #5a6070;
+  --dim: #383d4a;
+  --green: #2ecc71;
+  --blue: #38bdf8;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  background: var(--bg);
+  min-height: 100vh;
+}
+
+body {
+  font-family: 'Barlow', sans-serif;
+  padding: 14px;
+}
+
+.wrap {
+  background: var(--surface);
+  border-radius: 10px;
+  overflow: hidden;
+  max-width: 1100px;
+  margin: 0 auto;
+  color: var(--text);
+}
+
+.topbar {
+  background: var(--yellow);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 22px;
+}
+
+.logo-block {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.logo-divider {
+  width: 1px;
+  height: 36px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.logo-dhl {
+  height: 38px;
+}
+
+.logo-suz {
+  height: 34px;
+  background: #fff;
+  border-radius: 4px;
+  padding: 2px 7px;
+}
+
+.topbar-center {
+  text-align: center;
+}
+
+.topbar-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #111;
+}
+
+.topbar-sub {
+  font-size: 10px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.4);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.admin-badge {
+  background: var(--red);
+  color: #fff;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 4px;
+  letter-spacing: 0.08em;
+}
+
+.tabs {
+  display: flex;
+  background: #0d0e12;
+  border-bottom: 1px solid var(--border);
+}
+
+.tab {
+  flex: 1;
+  padding: 14px;
+  text-align: center;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-bottom: 3px solid transparent;
+  transition: all 0.2s;
+}
+
+.tab:hover {
+  color: #888;
+}
+
+.tab.act {
+  color: var(--yellow);
+  border-bottom-color: var(--yellow);
+  background: rgba(255, 204, 0, 0.05);
+}
+
+.screen {
+  display: none;
+  padding: 16px;
+}
+
+.screen.act {
+  display: block;
+}
+
+.sec-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.docas-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.doca-card {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.doca-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.field {
+  margin-bottom: 9px;
+}
+
+.field label {
+  display: block;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--dim);
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.field input, .field select {
+  width: 100%;
+  background: #0d0e12;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  padding: 7px 10px;
+  font-size: 12px;
+  font-family: 'Barlow', sans-serif;
+  transition: border-color 0.2s;
+}
+
+.field input:focus, .field select:focus {
+  outline: none;
+  border-color: var(--yellow);
+}
+
+.patio-section, .previsao-section {
+  border-top: 1px solid var(--border);
+  padding-top: 16px;
+  margin-top: 20px;
+}
+
+.patio-items, .previsao-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.row-edit {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  display: grid;
+  gap: 8px;
+  align-items: end;
+}
+
+.patio-row-edit {
+  grid-template-columns: 1.2fr 1fr 0.8fr 0.8fr auto;
+}
+
+.previsao-row-edit {
+  grid-template-columns: 1.5fr 1fr 0.6fr 1fr auto auto;
+}
+
+.remove-btn {
+  background: rgba(212, 5, 17, 0.1);
+  border: 1px solid rgba(212, 5, 17, 0.25);
+  color: #f87171;
+  border-radius: 6px;
+  padding: 7px 12px;
+  cursor: pointer;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  transition: all 0.15s;
+}
+
+.remove-btn:hover {
+  background: rgba(212, 5, 17, 0.25);
+}
+
+.action-btn {
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  color: var(--blue);
+  border-radius: 6px;
+  padding: 7px 12px;
+  cursor: pointer;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  transition: all 0.15s;
+}
+
+.action-btn:hover {
+  background: rgba(56, 189, 248, 0.25);
+}
+
+.add-btn {
+  background: rgba(255, 204, 0, 0.08);
+  border: 1px solid rgba(255, 204, 0, 0.25);
+  color: var(--yellow);
+  border-radius: 7px;
+  padding: 9px 18px;
+  cursor: pointer;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s;
+}
+
+.add-btn:hover {
+  background: rgba(255, 204, 0, 0.15);
+}
+
+.save-bar {
+  background: #0d0e12;
+  border-top: 1px solid var(--border);
+  padding: 14px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  bottom: 0;
+}
+
+.save-btn {
+  background: var(--yellow);
+  color: #111;
+  border: none;
+  border-radius: 7px;
+  padding: 11px 34px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-transform: uppercase;
+}
+
+.save-btn:hover {
+  background: #e6b800;
+  transform: scale(1.02);
+}
+
+.save-msg {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--green);
+  opacity: 0;
+  transition: opacity 0.3s;
+  letter-spacing: 0.06em;
+}
+
+.save-msg.show {
+  opacity: 1;
+}
+
+.comp-pills {
+  display: flex;
+  gap: 6px;
+  margin-top: 3px;
+}
+
+.comp-pill {
+  flex: 1;
+  padding: 7px 4px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: #0d0e12;
+  color: var(--muted);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.15s;
+  line-height: 1.4;
+  letter-spacing: 0.04em;
+}
+
+.comp-pill.sel-simples {
+  border-color: var(--blue);
+  background: rgba(56, 189, 248, 0.08);
+  color: var(--blue);
+}
+
+.comp-pill.sel-bitrem {
+  border-color: var(--yellow);
+  background: rgba(255, 204, 0, 0.08);
+  color: var(--yellow);
+}

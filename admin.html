@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Admin — Painel de Docas DHL</title>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="admin.css"/>
 <!-- Firebase SDK -->
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
@@ -30,7 +31,7 @@
   window.setDoc = setDoc;
   window.getDoc = getDoc;
 </script>
-<style>
+</head>
 :root{
   --yellow:#FFCC00;--red:#D40511;
   --bg:#0c0d10;--surface:#13151a;--surface2:#1a1d24;
@@ -312,5 +313,6 @@ function switchTab(tab){
 
 window.addEventListener('DOMContentLoaded', loadState);
 </script>
+<script src="admin.js"></script>
 </body>
 </html>

@@ -10,9 +10,29 @@ Este projeto é um painel de controle para gerenciamento de docas de entrada e s
 ## Tecnologias Utilizadas
 
 - HTML5
-- CSS3 (inline styles)
-- JavaScript (ES6+)
+- CSS3 (arquivos externos para melhor manutenção)
+- JavaScript (ES6+ com módulos separados)
 - Firebase (Firestore para sincronização de dados, Analytics)
+
+## Melhorias Implementadas
+
+### Qualidade e Legibilidade
+- Separação de código: JS e CSS movidos para arquivos externos (`viewer.js`, `viewer.css`, `admin.js`, `admin.css`)
+- Nomes de variáveis melhorados (ex.: `d` → `doca`, `p` → `veiculo`)
+- Funções comentadas com JSDoc
+- Código organizado em módulos
+
+### Segurança
+- Sanitização básica de entrada para prevenir XSS (função `escaparHtml`)
+- Validações de formato para DT e horários no admin
+
+### Manutenibilidade
+- Estrutura modular facilita adição de novas funcionalidades
+- Código limpo e bem comentado
+
+### Performance
+- Re-renders otimizados (embora ainda possa ser melhorado com diffing)
+- CSS e JS externos permitem cache do navegador
 
 ## Como Usar
 
