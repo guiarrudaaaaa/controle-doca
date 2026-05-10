@@ -18,7 +18,7 @@ function truckSVG(pct, comp) {
   if (isBitrem) {
     const fw1 = Math.round((pct / 100) * 56);
     const fw2 = Math.round((pct / 100) * 48);
-    return `<svg viewBox="0 0 148 58" style="width:100%;height:64px" xmlns="http://www.w3.org/2000/svg">
+    return `<svg viewBox="0 0 148 58" style="width:100%;height:auto;max-height:64px" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <clipPath id="${uid}a"><rect x="2" y="14" width="${fw1}" height="30" rx="3"/></clipPath>
         <clipPath id="${uid}b"><rect x="68" y="12" width="${fw2}" height="34" rx="3"/></clipPath>
@@ -42,7 +42,7 @@ function truckSVG(pct, comp) {
     </svg>`;
   } else {
     const fw = Math.round((pct / 100) * 74);
-    return `<svg viewBox="0 0 114 58" style="width:100%;height:64px" xmlns="http://www.w3.org/2000/svg">
+    return `<svg viewBox="0 0 114 58" style="width:100%;height:auto;max-height:64px" xmlns="http://www.w3.org/2000/svg">
       <defs><clipPath id="${uid}"><rect x="2" y="12" width="${fw}" height="36" rx="4"/></clipPath></defs>
       <rect x="2" y="12" width="74" height="36" rx="4" fill="#161920" stroke="#2a2d38" stroke-width="1"/>
       ${pct > 0 ? `<rect x="2" y="12" width="74" height="36" rx="4" fill="${col}" opacity="0.28" clip-path="url(#${uid})"/>` : ''}

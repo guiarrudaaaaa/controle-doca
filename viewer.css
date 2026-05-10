@@ -1,4 +1,5 @@
 /* viewer.css - Estilos para o painel de visualização das docas DHL */
+/* Otimizado para Desktop, Tablets, Celulares e TVs */
 
 :root {
   --yellow: #FFCC00;
@@ -26,10 +27,9 @@
   padding: 0;
 }
 
-html, body {
+html {
   height: 100%;
   background: var(--bg);
-  overflow: hidden;
 }
 
 body {
@@ -37,7 +37,10 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  padding: 14px;
+  max-height: 100vh;
+  padding: 0.875rem;
+  background: var(--bg);
+  overflow: hidden;
 }
 
 /* ── TOPBAR ── */
@@ -46,66 +49,76 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 24px;
+  padding: 0.625rem 1.5rem;
   flex-shrink: 0;
   border-radius: 10px 10px 0 0;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .logo-block {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 0.875rem;
+  flex: 1;
+  min-width: 0;
 }
 
 .logo-divider {
   width: 1px;
-  height: 38px;
+  height: 2.375rem;
   background: rgba(0, 0, 0, 0.2);
+  display: none;
 }
 
 .logo-dhl {
-  height: 40px;
+  height: 2.5rem;
   display: block;
+  flex-shrink: 0;
 }
 
 .logo-suz {
-  height: 36px;
+  height: 2.25rem;
   display: block;
   background: #fff;
   border-radius: 5px;
-  padding: 3px 8px;
+  padding: 0.1875rem 0.5rem;
 }
 
 .topbar-center {
-  text-align: center;
+  text-align: left;
+  flex: 1;
+  min-width: 0;
 }
 
 .topbar-site {
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 18px;
+  font-size: clamp(1rem, 2vw, 1.125rem);
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: #111;
   line-height: 1;
+  word-break: break-word;
 }
 
 .topbar-sub {
-  font-size: 11px;
+  font-size: clamp(0.625rem, 1.5vw, 0.6875rem);
   font-weight: 600;
   color: rgba(0, 0, 0, 0.45);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  margin-top: 3px;
+  margin-top: 0.1875rem;
 }
 
 .clock-block {
   text-align: right;
+  flex-shrink: 0;
 }
 
 .clock-time {
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 28px;
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
   font-weight: 700;
   color: #111;
   letter-spacing: 2px;
@@ -113,12 +126,12 @@ body {
 }
 
 .clock-date {
-  font-size: 10px;
+  font-size: clamp(0.5625rem, 1.2vw, 0.625rem);
   font-weight: 600;
   color: rgba(0, 0, 0, 0.4);
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  margin-top: 4px;
+  margin-top: 0.25rem;
 }
 
 /* ── TABS ── */
@@ -129,6 +142,7 @@ body {
   flex: 1;
   display: flex;
   flex-direction: column;
+  min-height: 0;
 }
 
 .tabs {
@@ -136,13 +150,15 @@ body {
   background: #0d0e12;
   border-bottom: 1px solid var(--border);
   flex-shrink: 0;
+  flex-wrap: wrap;
 }
 
 .tab {
   flex: 1;
-  padding: 15px 20px;
+  min-width: 150px;
+  padding: 0.9375rem 1.25rem;
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 14px;
+  font-size: clamp(0.75rem, 1.5vw, 0.875rem);
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -153,7 +169,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 0.5rem;
 }
 
 .tab:hover {
@@ -172,15 +188,17 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 20px;
+  padding: 0.625rem 1.25rem;
   background: #0d0e12;
   border-bottom: 1px solid var(--border);
   flex-shrink: 0;
+  flex-wrap: wrap;
+  gap: 0.75rem;
 }
 
 .seclabel {
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 12px;
+  font-size: clamp(0.6875rem, 1.2vw, 0.75rem);
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -189,38 +207,42 @@ body {
 
 .stats {
   display: flex;
-  gap: 20px;
+  gap: 1.25rem;
+  flex-wrap: wrap;
 }
 
 .stat {
-  font-size: 11px;
+  font-size: clamp(0.625rem, 1vw, 0.6875rem);
   font-weight: 600;
   color: var(--muted);
   letter-spacing: 0.04em;
+  white-space: nowrap;
 }
 
 .stat b {
   color: var(--text);
   font-weight: 700;
-  margin-left: 4px;
+  margin-left: 0.25rem;
 }
 
 .sync {
-  font-size: 10px;
+  font-size: clamp(0.5625rem, 0.9vw, 0.625rem);
   font-weight: 600;
   color: var(--dim);
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 0.375rem;
   letter-spacing: 0.04em;
+  white-space: nowrap;
 }
 
 .pulse {
-  width: 7px;
-  height: 7px;
+  width: 0.4375rem;
+  height: 0.4375rem;
   border-radius: 50%;
   background: var(--green);
   animation: pulse 2s infinite;
+  flex-shrink: 0;
 }
 
 @keyframes pulse {
@@ -234,12 +256,14 @@ body {
   }
 }
 
-/* ── CONTENT LAYOUT ── */
+/* ── CONTENT LAYOUT - DESKTOP (LATERAL) ── */
 .content {
   display: flex;
   flex: 1;
   min-height: 0;
   overflow: hidden;
+  flex-direction: row;
+  gap: 0;
 }
 
 .left-content {
@@ -248,31 +272,35 @@ body {
   flex-direction: column;
   min-width: 0;
   background: #0d0e12;
+  overflow: hidden;
 }
 
 .docas-area {
-  padding: 12px 16px;
+  padding: 0.75rem 1rem;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.625rem;
   align-content: start;
   overflow-y: auto;
-  min-height: 200px;
+  overflow-x: hidden;
+  flex: 1;
 }
 
 .patio-area {
-  width: 224px;
+  width: 280px;
   border-left: 1px solid var(--border);
+  border-top: none;
   display: flex;
   flex-direction: column;
   background: #0d0e12;
   overflow: hidden;
+  flex-shrink: 0;
 }
 
 .patio-head {
-  padding: 14px 16px 10px;
+  padding: 0.875rem 1rem 0.625rem;
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 11px;
+  font-size: clamp(0.625rem, 1vw, 0.6875rem);
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -281,30 +309,34 @@ body {
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+  gap: 0.5rem;
 }
 
 .patio-count {
   background: var(--yellow);
   color: #111;
   border-radius: 20px;
-  padding: 2px 10px;
-  font-size: 11px;
+  padding: 0.125rem 0.625rem;
+  font-size: clamp(0.625rem, 1vw, 0.6875rem);
   font-weight: 800;
+  flex-shrink: 0;
 }
 
 .patio-list {
   flex: 1;
   overflow-y: auto;
-  padding: 12px 12px;
+  overflow-x: hidden;
+  padding: 0.75rem;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 0.5rem;
 }
 
 .patio-empty {
   text-align: center;
-  padding: 30px 0;
-  font-size: 12px;
+  padding: 1.875rem 0;
+  font-size: clamp(0.75rem, 1.2vw, 0.75rem);
   font-weight: 600;
   color: var(--dim);
   letter-spacing: 0.04em;
@@ -314,8 +346,9 @@ body {
 .previsao-area {
   border-top: 1px solid var(--border);
   background: var(--surface);
-  padding: 10px 16px;
-  height: 280px;
+  padding: 0.625rem 1rem;
+  min-height: 200px;
+  max-height: 35vh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -326,14 +359,16 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
-  padding-bottom: 10px;
+  margin-bottom: 0.625rem;
+  padding-bottom: 0.625rem;
   border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .previsao-stats {
   display: flex;
-  gap: 12px;
+  gap: 0.75rem;
   flex-wrap: wrap;
 }
 
@@ -341,44 +376,48 @@ body {
   background: rgba(255, 204, 0, 0.05);
   border: 1px solid rgba(255, 204, 0, 0.15);
   border-radius: 6px;
-  padding: 6px 12px;
-  font-size: 11px;
+  padding: 0.375rem 0.75rem;
+  font-size: clamp(0.625rem, 1vw, 0.6875rem);
   font-weight: 700;
   color: var(--yellow);
   font-family: 'Barlow Condensed', sans-serif;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .previsao-stat-value {
   color: var(--text);
   font-weight: 700;
-  margin-left: 4px;
+  margin-left: 0.25rem;
 }
 
 .previsao-title {
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 12px;
+  font-size: clamp(0.6875rem, 1.2vw, 0.75rem);
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--yellow);
+  white-space: nowrap;
 }
 
 .previsao-scroll {
   flex: 1;
   overflow-y: auto;
+  overflow-x: auto;
 }
 
 .previsao-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 12px;
+  font-size: clamp(0.75rem, 1.1vw, 0.75rem);
+  min-width: 500px;
 }
 
 .previsao-table th {
   text-align: left;
-  padding: 6px 10px;
+  padding: 0.375rem 0.625rem;
   color: var(--muted);
   font-family: 'Barlow Condensed', sans-serif;
   text-transform: uppercase;
@@ -388,12 +427,16 @@ body {
   top: 0;
   background: var(--surface);
   z-index: 10;
+  white-space: nowrap;
 }
 
 .previsao-table td {
-  padding: 8px 10px;
+  padding: 0.5rem 0.625rem;
   color: var(--text);
   border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .previsao-table tr:hover td {
@@ -412,7 +455,7 @@ body {
   font-weight: 700;
   color: var(--yellow);
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 14px;
+  font-size: clamp(0.8125rem, 1.3vw, 0.875rem);
 }
 
 .previsao-table .td-tons {
@@ -422,13 +465,14 @@ body {
 
 .status-tag {
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 10px;
+  font-size: clamp(0.5625rem, 0.9vw, 0.625rem);
   font-weight: 700;
   text-transform: uppercase;
   color: var(--blue);
   border: 1px solid rgba(56, 189, 248, 0.3);
-  padding: 2px 6px;
+  padding: 0.125rem 0.375rem;
   border-radius: 3px;
+  white-space: nowrap;
 }
 
 /* ── DOCA CARD ── */
@@ -436,9 +480,12 @@ body {
   background: var(--surface2);
   border: 1px solid var(--border);
   border-radius: 10px;
-  padding: 12px 11px;
+  padding: 0.75rem 0.6875rem;
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 280px;
 }
 
 .doca::before {
@@ -470,25 +517,29 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 8px;
+  margin-bottom: 0.5rem;
+  gap: 0.5rem;
 }
 
 .doca-id {
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 13px;
+  font-size: clamp(0.8125rem, 1.2vw, 0.8125rem);
   font-weight: 700;
   color: var(--muted);
   letter-spacing: 0.1em;
+  white-space: nowrap;
 }
 
 .badge {
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 10px;
+  font-size: clamp(0.625rem, 0.9vw, 0.625rem);
   font-weight: 700;
-  padding: 3px 9px;
+  padding: 0.1875rem 0.5625rem;
   border-radius: 4px;
   text-transform: uppercase;
   letter-spacing: 0.06em;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .b-livre {
@@ -512,21 +563,29 @@ body {
 }
 
 .truck-wrap {
-  height: 66px;
+  height: 4.125rem;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+  min-width: 0;
+  flex: 1;
+}
+
+.truck-wrap svg {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
 }
 
 .comp-chip {
   position: absolute;
-  top: 2px;
+  top: 0.125rem;
   right: 0;
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 9px;
+  font-size: clamp(0.5625rem, 0.8vw, 0.5625rem);
   font-weight: 700;
-  padding: 2px 6px;
+  padding: 0.125rem 0.375rem;
   border-radius: 3px;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -548,26 +607,30 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 6px;
-  padding-top: 6px;
+  margin-top: 0.375rem;
+  padding-top: 0.375rem;
   border-top: 1px solid var(--border);
+  gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
 .doca-dt {
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 15px;
+  font-size: clamp(0.9375rem, 1.4vw, 0.9375rem);
   font-weight: 700;
   color: var(--text);
   letter-spacing: 0.06em;
+  white-space: nowrap;
 }
 
 .doca-hora {
-  font-size: 11px;
+  font-size: clamp(0.625rem, 0.95vw, 0.6875rem);
   font-weight: 600;
   color: var(--muted);
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 0.25rem;
+  white-space: nowrap;
 }
 
 /* ── PÁTIO ITEM ── */
@@ -575,7 +638,7 @@ body {
   background: var(--surface2);
   border: 1px solid var(--border);
   border-radius: 8px;
-  padding: 10px 12px;
+  padding: 0.625rem 0.75rem;
   border-left: 3px solid var(--dim);
   transition: border-color 0.2s;
 }
@@ -594,16 +657,17 @@ body {
 
 .pitem-dt {
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 14px;
+  font-size: clamp(0.875rem, 1.3vw, 0.875rem);
   font-weight: 700;
   color: var(--text);
   letter-spacing: 0.05em;
+  word-break: break-word;
 }
 
 .pitem-comp {
-  font-size: 10px;
+  font-size: clamp(0.625rem, 0.9vw, 0.625rem);
   font-weight: 700;
-  margin-top: 3px;
+  margin-top: 0.1875rem;
   letter-spacing: 0.04em;
 }
 
@@ -619,18 +683,22 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 6px;
+  margin-top: 0.375rem;
+  gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
 .pitem-hora {
-  font-size: 10px;
+  font-size: clamp(0.625rem, 0.9vw, 0.625rem);
   font-weight: 600;
   color: var(--muted);
+  white-space: nowrap;
 }
 
 .pitem-wait {
-  font-size: 11px;
+  font-size: clamp(0.6875rem, 1vw, 0.6875rem);
   font-weight: 700;
+  white-space: nowrap;
 }
 
 .w-green {
@@ -660,33 +728,276 @@ body {
 .footer {
   background: #0d0e12;
   border-top: 1px solid var(--border);
-  padding: 9px 20px;
+  padding: 0.5625rem 1.25rem;
   display: flex;
-  gap: 20px;
+  gap: 1.25rem;
   align-items: center;
   flex-shrink: 0;
+  flex-wrap: wrap;
+  overflow-x: auto;
 }
 
 .leg {
   display: flex;
   align-items: center;
-  gap: 7px;
-  font-size: 10px;
+  gap: 0.4375rem;
+  font-size: clamp(0.625rem, 0.95vw, 0.625rem);
   font-weight: 600;
   color: var(--muted);
   letter-spacing: 0.04em;
+  white-space: nowrap;
 }
 
 .leg-bar {
-  width: 10px;
-  height: 10px;
+  width: 0.625rem;
+  height: 0.625rem;
   border-radius: 2px;
   flex-shrink: 0;
 }
 
 .leg-sep {
   width: 1px;
-  height: 14px;
+  height: 0.875rem;
   background: var(--border);
-  margin: 0 2px;
+  margin: 0 0.125rem;
+  flex-shrink: 0;
+}
+
+/* ── RESPONSIVIDADE ── */
+
+/* Tablets e telas médias (1024px) */
+@media (max-width: 1024px) {
+  body {
+    padding: 0.5rem;
+  }
+
+  .topbar {
+    padding: 0.5rem 1rem;
+  }
+
+  .docas-area {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .patio-area {
+    width: 240px;
+  }
+}
+
+/* Tablets pequenos e celulares grandes (768px) - LAYOUT MUDA PARA VERTICAL */
+@media (max-width: 768px) {
+  body {
+    padding: 0.375rem;
+  }
+
+  .topbar {
+    padding: 0.375rem 0.75rem;
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 8px 8px 0 0;
+  }
+
+  .logo-block {
+    width: 100%;
+  }
+
+  .topbar-center {
+    width: 100%;
+  }
+
+  .clock-block {
+    width: 100%;
+    text-align: left;
+    margin-top: 0.25rem;
+  }
+
+  .tab {
+    font-size: clamp(0.6875rem, 1.2vw, 0.75rem);
+    padding: 0.625rem 0.75rem;
+    min-width: 100px;
+  }
+
+  .secbar {
+    padding: 0.375rem 0.75rem;
+    gap: 0.5rem;
+  }
+
+  /* MUDANÇA PRINCIPAL: Layout passa de horizontal para vertical */
+  .content {
+    flex-direction: column;
+  }
+
+  .left-content {
+    flex: 1;
+    min-height: 0;
+  }
+
+  .docas-area {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.375rem;
+    padding: 0.375rem 0.625rem;
+  }
+
+  .doca {
+    padding: 0.625rem 0.5rem;
+    min-height: 240px;
+  }
+
+  /* Pátio fica abaixo em telas pequenas */
+  .patio-area {
+    width: 100%;
+    border-left: none;
+    border-top: 1px solid var(--border);
+    max-height: 30vh;
+  }
+
+  .patio-list {
+    padding: 0.5rem;
+    gap: 0.375rem;
+  }
+
+  .pitem {
+    padding: 0.5rem 0.625rem;
+  }
+
+  .previsao-area {
+    max-height: 30vh;
+  }
+}
+
+/* Celulares (480px) */
+@media (max-width: 480px) {
+  body {
+    padding: 0.25rem;
+  }
+
+  .topbar {
+    padding: 0.25rem 0.5rem;
+  }
+
+  .logo-dhl {
+    height: 2rem;
+  }
+
+  .tab {
+    font-size: clamp(0.625rem, 1vw, 0.625rem);
+    padding: 0.5rem 0.5rem;
+    min-width: 80px;
+  }
+
+  .secbar {
+    padding: 0.25rem 0.5rem;
+    gap: 0.25rem;
+  }
+
+  .stats {
+    gap: 0.75rem;
+  }
+
+  .docas-area {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .doca {
+    padding: 0.5rem 0.375rem;
+    min-height: 200px;
+  }
+
+  .truck-wrap {
+    height: 3.5rem;
+  }
+
+  .patio-area {
+    max-height: 25vh;
+  }
+
+  .previsao-area {
+    max-height: 25vh;
+  }
+
+  .patio-head {
+    padding: 0.5rem 0.625rem 0.375rem;
+  }
+
+  .patio-list {
+    padding: 0.375rem;
+    gap: 0.25rem;
+  }
+
+  .pitem {
+    padding: 0.375rem 0.5rem;
+  }
+
+  .footer {
+    padding: 0.375rem 0.75rem;
+    gap: 0.75rem;
+    font-size: clamp(0.5625rem, 0.8vw, 0.5625rem);
+  }
+}
+
+/* Celulares muito pequenos (320px) */
+@media (max-width: 320px) {
+  body {
+    padding: 0.125rem;
+  }
+
+  .topbar {
+    padding: 0.125rem 0.25rem;
+  }
+
+  .logo-dhl {
+    height: 1.75rem;
+  }
+
+  .tab {
+    font-size: clamp(0.5625rem, 0.9vw, 0.5625rem);
+    padding: 0.375rem 0.375rem;
+    min-width: 60px;
+  }
+
+  .secbar {
+    padding: 0.125rem 0.25rem;
+    gap: 0.125rem;
+  }
+
+  .stats {
+    gap: 0.5rem;
+    flex-direction: column;
+  }
+
+  .docas-area {
+    grid-template-columns: 1fr;
+    gap: 0.125rem;
+    padding: 0.125rem 0.25rem;
+  }
+
+  .doca {
+    padding: 0.375rem 0.25rem;
+    min-height: 180px;
+  }
+
+  .truck-wrap {
+    height: 3rem;
+  }
+
+  .patio-area {
+    max-height: 20vh;
+  }
+
+  .previsao-area {
+    max-height: 20vh;
+  }
+
+  .footer {
+    padding: 0.25rem 0.5rem;
+    gap: 0.5rem;
+  }
+
+  .leg-sep {
+    display: none;
+  }
 }

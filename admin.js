@@ -70,7 +70,7 @@ function renderizarGrid(lado) {
         </div>
       </div>
       <div class="field"><label>Entrada</label><input type="time" oninput="estado['${lado}'].docas[${container.children.length}].hora = this.value"/></div>
-      <div class="field"><label>Carga: 0%</label><input type="range" oninput="estado['${lado}'].docas[${container.children.length}].pct = +this.value; renderizarGrid('${lado}')"/></div>
+      <div class="field"><label>Carga: <span class="pct-value">0</span>%</label><input type="range" min="0" max="100" oninput="const idx = ${container.children.length}; estado['${lado}'].docas[idx].pct = +this.value; this.parentElement.querySelector('.pct-value').textContent = this.value; renderizarGrid('${lado}')"/></div>
     `;
     container.appendChild(card);
   }
@@ -98,7 +98,7 @@ function renderizarGrid(lado) {
     }
 
     // Atualiza input DT
-    const dtInput = card.querySelector('input[type="text"]');
+    const dtInput = card.querySelector('input[oninput*="dt"]');
     if (dtInput && dtInput.value !== doca.dt) {
       dtInput.value = doca.dt;
     }
@@ -118,12 +118,12 @@ function renderizarGrid(lado) {
 
     // Atualiza range e label de carga
     const rangeInput = card.querySelector('input[type="range"]');
-    const cargaLabel = card.querySelector('label');
+    const pctSpan = card.querySelector('.pct-value');
     if (rangeInput && rangeInput.value != doca.pct) {
       rangeInput.value = doca.pct;
     }
-    if (cargaLabel && cargaLabel.textContent !== `Carga: ${doca.pct}%`) {
-      cargaLabel.textContent = `Carga: ${doca.pct}%`;
+    if (pctSpan && pctSpan.textContent !== `${doca.pct}`) {
+      pctSpan.textContent = `${doca.pct}`;
     }
   });
 }
